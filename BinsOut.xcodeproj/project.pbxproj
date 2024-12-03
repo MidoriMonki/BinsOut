@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2807E8E329D31C490029C6B9 /* BinsOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E8E229D31C490029C6B9 /* BinsOutApp.swift */; };
+		2807E8E529D31C490029C6B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E8E429D31C490029C6B9 /* ContentView.swift */; };
+		2807E8E729D31C4E0029C6B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2807E8E629D31C4E0029C6B9 /* Assets.xcassets */; };
+		2807E8EA29D31C4E0029C6B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2807E8E929D31C4E0029C6B9 /* Preview Assets.xcassets */; };
+		2807E8F729D31C920029C6B9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2807E8F629D31C910029C6B9 /* WidgetKit.framework */; };
+		2807E8F929D31C920029C6B9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2807E8F829D31C920029C6B9 /* SwiftUI.framework */; };
+		2807E8FC29D31C920029C6B9 /* BinsOutWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E8FB29D31C920029C6B9 /* BinsOutWidgetBundle.swift */; };
+		2807E8FE29D31C920029C6B9 /* BinsOutWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E8FD29D31C920029C6B9 /* BinsOutWidgetLiveActivity.swift */; };
+		2807E90029D31C930029C6B9 /* BinsOutWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E8FF29D31C920029C6B9 /* BinsOutWidget.swift */; };
+		2807E90329D31C9E0029C6B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2807E90229D31C9E0029C6B9 /* Assets.xcassets */; };
+		2807E90529D31C9E0029C6B9 /* BinsOutWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2807E90129D31C940029C6B9 /* BinsOutWidget.intentdefinition */; };
+		2807E90629D31C9E0029C6B9 /* BinsOutWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2807E90129D31C940029C6B9 /* BinsOutWidget.intentdefinition */; };
+		2807E90929D31C9E0029C6B9 /* BinsOutWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2807E8F429D31C910029C6B9 /* BinsOutWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2807E90F29D3285F0029C6B9 /* DayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E90E29D3285F0029C6B9 /* DayConfig.swift */; };
+		2807E91029D3285F0029C6B9 /* DayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2807E90E29D3285F0029C6B9 /* DayConfig.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2807E90729D31C9E0029C6B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2807E8D729D31C490029C6B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2807E8F329D31C910029C6B9;
+			remoteInfo = BinsOutWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2807E90D29D31C9F0029C6B9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2807E90929D31C9E0029C6B9 /* BinsOutWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2807E8DF29D31C490029C6B9 /* BinsOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinsOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2807E8E229D31C490029C6B9 /* BinsOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinsOutApp.swift; sourceTree = "<group>"; };
+		2807E8E429D31C490029C6B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2807E8E629D31C4E0029C6B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2807E8E929D31C4E0029C6B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2807E8F429D31C910029C6B9 /* BinsOutWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BinsOutWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2807E8F629D31C910029C6B9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2807E8F829D31C920029C6B9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2807E8FB29D31C920029C6B9 /* BinsOutWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinsOutWidgetBundle.swift; sourceTree = "<group>"; };
+		2807E8FD29D31C920029C6B9 /* BinsOutWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinsOutWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		2807E8FF29D31C920029C6B9 /* BinsOutWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinsOutWidget.swift; sourceTree = "<group>"; };
+		2807E90129D31C940029C6B9 /* BinsOutWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = BinsOutWidget.intentdefinition; sourceTree = "<group>"; };
+		2807E90229D31C9E0029C6B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2807E90429D31C9E0029C6B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2807E90E29D3285F0029C6B9 /* DayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayConfig.swift; sourceTree = SOURCE_ROOT; };
+		287CC91C29D57BAA00BB6A67 /* BinsOut.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinsOut.entitlements; sourceTree = "<group>"; };
+		287CC91D29D5879000BB6A67 /* BinsOutWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BinsOutWidgetExtension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2807E8DC29D31C490029C6B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2807E8F129D31C910029C6B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807E8F929D31C920029C6B9 /* SwiftUI.framework in Frameworks */,
+				2807E8F729D31C920029C6B9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2807E8D629D31C490029C6B9 = {
+			isa = PBXGroup;
+			children = (
+				287CC91D29D5879000BB6A67 /* BinsOutWidgetExtension.entitlements */,
+				2807E8E129D31C490029C6B9 /* BinsOut */,
+				2807E8FA29D31C920029C6B9 /* BinsOutWidget */,
+				2807E8F529D31C910029C6B9 /* Frameworks */,
+				2807E8E029D31C490029C6B9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2807E8E029D31C490029C6B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2807E8DF29D31C490029C6B9 /* BinsOut.app */,
+				2807E8F429D31C910029C6B9 /* BinsOutWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2807E8E129D31C490029C6B9 /* BinsOut */ = {
+			isa = PBXGroup;
+			children = (
+				287CC91C29D57BAA00BB6A67 /* BinsOut.entitlements */,
+				2807E8E229D31C490029C6B9 /* BinsOutApp.swift */,
+				2807E8E429D31C490029C6B9 /* ContentView.swift */,
+				2807E8E629D31C4E0029C6B9 /* Assets.xcassets */,
+				2807E8E829D31C4E0029C6B9 /* Preview Content */,
+			);
+			path = BinsOut;
+			sourceTree = "<group>";
+		};
+		2807E8E829D31C4E0029C6B9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2807E8E929D31C4E0029C6B9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2807E8F529D31C910029C6B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2807E8F629D31C910029C6B9 /* WidgetKit.framework */,
+				2807E8F829D31C920029C6B9 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2807E8FA29D31C920029C6B9 /* BinsOutWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2807E8FB29D31C920029C6B9 /* BinsOutWidgetBundle.swift */,
+				2807E8FD29D31C920029C6B9 /* BinsOutWidgetLiveActivity.swift */,
+				2807E8FF29D31C920029C6B9 /* BinsOutWidget.swift */,
+				2807E90E29D3285F0029C6B9 /* DayConfig.swift */,
+				2807E90129D31C940029C6B9 /* BinsOutWidget.intentdefinition */,
+				2807E90229D31C9E0029C6B9 /* Assets.xcassets */,
+				2807E90429D31C9E0029C6B9 /* Info.plist */,
+			);
+			path = BinsOutWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2807E8DE29D31C490029C6B9 /* BinsOut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2807E8ED29D31C4E0029C6B9 /* Build configuration list for PBXNativeTarget "BinsOut" */;
+			buildPhases = (
+				2807E8DB29D31C490029C6B9 /* Sources */,
+				2807E8DC29D31C490029C6B9 /* Frameworks */,
+				2807E8DD29D31C490029C6B9 /* Resources */,
+				2807E90D29D31C9F0029C6B9 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2807E90829D31C9E0029C6B9 /* PBXTargetDependency */,
+			);
+			name = BinsOut;
+			productName = BinsOut;
+			productReference = 2807E8DF29D31C490029C6B9 /* BinsOut.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2807E8F329D31C910029C6B9 /* BinsOutWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2807E90A29D31C9F0029C6B9 /* Build configuration list for PBXNativeTarget "BinsOutWidgetExtension" */;
+			buildPhases = (
+				2807E8F029D31C910029C6B9 /* Sources */,
+				2807E8F129D31C910029C6B9 /* Frameworks */,
+				2807E8F229D31C910029C6B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BinsOutWidgetExtension;
+			productName = BinsOutWidgetExtension;
+			productReference = 2807E8F429D31C910029C6B9 /* BinsOutWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2807E8D729D31C490029C6B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					2807E8DE29D31C490029C6B9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					2807E8F329D31C910029C6B9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = 2807E8DA29D31C490029C6B9 /* Build configuration list for PBXProject "BinsOut" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2807E8D629D31C490029C6B9;
+			productRefGroup = 2807E8E029D31C490029C6B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2807E8DE29D31C490029C6B9 /* BinsOut */,
+				2807E8F329D31C910029C6B9 /* BinsOutWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2807E8DD29D31C490029C6B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807E8EA29D31C4E0029C6B9 /* Preview Assets.xcassets in Resources */,
+				2807E8E729D31C4E0029C6B9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2807E8F229D31C910029C6B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807E90329D31C9E0029C6B9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2807E8DB29D31C490029C6B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807E8E529D31C490029C6B9 /* ContentView.swift in Sources */,
+				2807E8E329D31C490029C6B9 /* BinsOutApp.swift in Sources */,
+				2807E90F29D3285F0029C6B9 /* DayConfig.swift in Sources */,
+				2807E90629D31C9E0029C6B9 /* BinsOutWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2807E8F029D31C910029C6B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2807E8FC29D31C920029C6B9 /* BinsOutWidgetBundle.swift in Sources */,
+				2807E8FE29D31C920029C6B9 /* BinsOutWidgetLiveActivity.swift in Sources */,
+				2807E91029D3285F0029C6B9 /* DayConfig.swift in Sources */,
+				2807E90029D31C930029C6B9 /* BinsOutWidget.swift in Sources */,
+				2807E90529D31C9E0029C6B9 /* BinsOutWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2807E90829D31C9E0029C6B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2807E8F329D31C910029C6B9 /* BinsOutWidgetExtension */;
+			targetProxy = 2807E90729D31C9E0029C6B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2807E8EB29D31C4E0029C6B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2807E8EC29D31C4E0029C6B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2807E8EE29D31C4E0029C6B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = BinsOut/BinsOut.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_ASSET_PATHS = "\"BinsOut/Preview Content\"";
+				DEVELOPMENT_TEAM = W59Q735CW8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = izaacmurray.BinsOut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2807E8EF29D31C4E0029C6B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = BinsOut/BinsOut.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_ASSET_PATHS = "\"BinsOut/Preview Content\"";
+				DEVELOPMENT_TEAM = W59Q735CW8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = izaacmurray.BinsOut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2807E90B29D31C9F0029C6B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BinsOutWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W59Q735CW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BinsOutWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BinsOutWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = izaacmurray.BinsOut.BinsOutWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2807E90C29D31C9F0029C6B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = BinsOutWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W59Q735CW8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BinsOutWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BinsOutWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = izaacmurray.BinsOut.BinsOutWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2807E8DA29D31C490029C6B9 /* Build configuration list for PBXProject "BinsOut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2807E8EB29D31C4E0029C6B9 /* Debug */,
+				2807E8EC29D31C4E0029C6B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2807E8ED29D31C4E0029C6B9 /* Build configuration list for PBXNativeTarget "BinsOut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2807E8EE29D31C4E0029C6B9 /* Debug */,
+				2807E8EF29D31C4E0029C6B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2807E90A29D31C9F0029C6B9 /* Build configuration list for PBXNativeTarget "BinsOutWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2807E90B29D31C9F0029C6B9 /* Debug */,
+				2807E90C29D31C9F0029C6B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2807E8D729D31C490029C6B9 /* Project object */;
+}
