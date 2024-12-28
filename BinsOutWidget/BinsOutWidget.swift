@@ -9,6 +9,17 @@ import WidgetKit
 import SwiftUI
 import Intents
 
+
+enum Day: String, CaseIterable, Identifiable {
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+    var id: Self { self }
+}
+enum Colour: String, CaseIterable, Identifiable {
+    case Yellow, Red
+    var id: Self { self }
+}
+
+
 //Puts it all together?
 struct BinsOutWidget: Widget {
     let kind: String = "BinsOutWidget"
@@ -35,6 +46,141 @@ extension WidgetConfiguration {
 
 
 
+
+//A view of the model for the widget, needs a date var
+struct SimpleEntry: TimelineEntry {
+    //Add parameters for Timeline updates
+    let Colour: String
+    let Text: String
+    let date: Date
+    //let nextBinDate: Date
+    //let daysAway: Int
+    //let binWeek: String
+    //let configuration: ConfigurationIntent
+}
+//Retrieve data for widget while in differents stages
+//IntentTimelineProvider
+struct Provider: IntentTimelineProvider {
+    //Loading state of widget, as in like everything like images haven't loaded yet.
+    func placeholder(in context: Context) -> SimpleEntry {
+        //let entry = SimpleEntry(date: Date(), nextBinDate: Date(), daysAway: 1, binWeek:"Yellow")
+        let entry = SimpleEntry(Colour: "Yellow", Text: "Tomorrow", date: Date())
+        return entry;
+    }
+    //Preview of widget, when user is going to add widget to home screen
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        //let entry = SimpleEntry(date: Date(), nextBinDate: Date(), daysAway: 1, binWeek: "Yellow")
+        let entry = SimpleEntry(Colour: "Yellow", Text: "Tomorrow", date: Date())
+        completion(entry)
+    }
+    
+    //Always has list of entries, basically once its added to home screen, create entries and put them into the time line
+    
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        var entries: [SimpleEntry] = []
+
+        @State var binDay = setUpBinDay()
+        @State var binColour = setUpBinColour()
+        
+        var daysAway = 0
+        //var nextBinDate: Date
+        //var entryDaysAway = 0
+        
+        //what we are returning/working out
+        var colour: String
+        var text: String
+        
+        //nextBinDate = determineDate(nextBinDay: binDay[0].rawValue, weeksFromNow: 0)
+        
+        //For each day, create an entry
+        //At the moment it just refreshes every day
+        for dayOffset in 0 ..< 1 {
+            
+            let currentDate = Date()
+            //let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
+            //let startOfDate = Calendar.current.startOfDay(for: entryDate)
+
+            if #available(iOSApplicationExtension 15.0, *) {
+                
+                //Check to see if today is a Sunday, if so set our newWeekCheck to true as we know to swap weeks on Monday (tomoroow)
+                if (dayOfWeek(nextBinDate: currentDate) == "Sunday"){
+                    UserDefaults(suiteName: "group.bins")?.set(true, forKey: "newWeekCheck")
+                }
+                
+                //Check to see if new week, This done by seeing if the program has already been run on a sunday
+                if (UserDefaults(suiteName: "group.bins")?.bool(forKey:"newWeekCheck") ?? false && dayOfWeek(nextBinDate: currentDate) == "Monday"){
+                    //if true, the program at some point was set up on last week and today is a Monday
+                    //If new week, reorder the weeks
+                    var rawDay: [String] = []
+                    var count = 0
+                    for i in binDay{
+                        if (count != 0){
+                            rawDay.append(i.rawValue)
+                        }
+                        count+=1
+                    }
+                    rawDay.append(binDay[0].rawValue)
+                    
+                    count = 0
+                    var rawColour: [String] = []
+                    for i in binColour{
+                        if (count != 0){
+                            rawColour.append(i.rawValue)
+                        }
+                        count+=1
+                    }
+                    rawColour.append(binColour[0].rawValue)
+                    
+                    //After the lists have been reordered, update them
+                    UserDefaults(suiteName: "group.bins")?.set(rawDay, forKey: "binDay")
+                    UserDefaults(suiteName: "group.bins")?.set(rawColour, forKey: "binColour")
+                    UserDefaults(suiteName: "group.bins")?.set(false, forKey: "newWeekCheck")
+                }
+                
+                daysAway = numberOfDaysAway(nextBinDay: binDay[0].rawValue)
+                
+                if (daysAway == 0){
+                    //bin day is today :)
+                    colour = binColour[0].rawValue
+                    text = "Today"
+                }else if (daysAway == 1){
+                    //bin day is tomorrow :O
+                    colour = binColour[0].rawValue
+                    text = "Tomorrow"
+                }else if (daysAway < 0){
+                    //bin day is next week :/
+                    if (binColour.count>1){
+                        colour = binColour[1].rawValue
+                        text = nd(nextBinDate: determineDate(nextBinDay: binDay[1].rawValue, weeksFromNow: 1))
+                    }else{
+                        colour = binColour[0].rawValue
+                        text = nd(nextBinDate: determineDate(nextBinDay: binDay[0].rawValue, weeksFromNow: 1))
+                    }
+                }else{
+                    //bin day this week :o
+                    colour = binColour[0].rawValue
+                    text = nd(nextBinDate: determineDate(nextBinDay: binDay[0].rawValue, weeksFromNow: 0))
+                }
+                
+                //Pass all the parametres each entry is looking for
+                let entry = SimpleEntry(Colour: colour, Text: text, date: Date())
+                //let entry = SimpleEntry(date: startOfDate, week: weeek, next: dd(), check: nn(), configuration: configuration)
+                entries.append(entry)
+            }
+        }
+        
+        //let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+        completion(timeline)
+    }
+}
+
+
+
+
+
+
+/*
 //A view of the model for the widget, needs a date var
 struct SimpleEntry: TimelineEntry {
     //Add parameters for Timeline updates
@@ -59,6 +205,7 @@ struct Provider: IntentTimelineProvider {
     }
     
     //Always has list of entries, basically once its added to home screen, create entries and put them into the time line
+    
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
         let currentDate = Date()
@@ -72,14 +219,11 @@ struct Provider: IntentTimelineProvider {
         let binDay = UserDefaults(suiteName: "group.bins")?.string(forKey:"binDay") ?? "Monday"
         var entryDaysAway = 0
         
-        //Figure out which date this week's binDay is on, and how many daysAway it is
-        if #available(iOSApplicationExtension 15.0, *) {
-            daysAway = dayList.firstIndex(of: binDay)! - dayList.firstIndex(of: currentDate.formatted( .dateTime.weekday(.wide)))!
-            nextBinDate = Calendar.current.date(byAdding: .day, value: daysAway, to: currentDate)!
-        }
+        //Figure out which date this week's binDay is on
+        nextBinDate = determineDate(nextBinDay: binDay, weeksFromNow: 0)
         
         //For each day, create an entry
-        for dayOffset in 0 ..< 14 {
+        for dayOffset in 0 ..< 28 {
             
             let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
             let startOfDate = Calendar.current.startOfDay(for: entryDate)
@@ -89,7 +233,7 @@ struct Provider: IntentTimelineProvider {
                 //Check when binDay is relative to the entry
                 if (daysAway == 0){
                     //Bin day is today :)
-                    //
+                    
                     nextBinDate = Calendar.current.date(byAdding: .day, value: 7, to: currentDate)!
                     daysAway = 6
                     token = 0
@@ -136,6 +280,7 @@ struct Provider: IntentTimelineProvider {
         completion(timeline)
     }
 }
+*/
 
 //UserDefaults.standard.object(forKey:"whichDayIsBinDay") as! String
 
@@ -157,9 +302,8 @@ struct BinsOutWidgetEntryView : View  {
     var body: some View {
         
         if #available(iOSApplicationExtension 15.0, *) {
-            let binWeek = entry.binWeek
-            let nextBinDate = entry.nextBinDate
-            let daysAway = entry.daysAway
+            let colour = entry.Colour
+            let text = entry.Text
             
             ZStack {
                 //Set backdrop
@@ -201,16 +345,17 @@ struct BinsOutWidgetEntryView : View  {
                          */
                     }
                     
-                    if (binWeek == "Yellow"){
-                        if (daysAway != 0){
-                            Image("nightYellow")
+                    if (colour == "Yellow"){
+                        if (text == "Today"){
+                            Image("dayYellow")
                                 .resizable()
                                 .scaledToFit()
                                 //.containerRelativeFrame(.horizontal){ size, axis in size }
                                 .frame(width: UIScreen.main.bounds.size.width/2.3, height: UIScreen.main.bounds.size.height/2.3)
                                 //.position(x:0)
+
                         }else{
-                            Image("dayYellow")
+                            Image("nightYellow")
                                 .resizable()
                                 .scaledToFit()
                                 //.containerRelativeFrame(.horizontal){ size, axis in size }
@@ -219,15 +364,15 @@ struct BinsOutWidgetEntryView : View  {
                         }
                     
                     }else{
-                        if (daysAway != 0){
-                            Image("nightRed")
+                        if (text == "Today"){
+                            Image("dayRed")
                                 .resizable()
                                 .scaledToFit()
                                 //.containerRelativeFrame(.horizontal){ size, axis in size }
                                 .frame(width: UIScreen.main.bounds.size.width/2.3, height: UIScreen.main.bounds.size.height/2.3)
                                 //.position(x:0)
                         }else{
-                            Image("dayRed")
+                            Image("nightRed")
                                 .resizable()
                                 .scaledToFit()
                                 //.containerRelativeFrame(.horizontal){ size, axis in size }
@@ -239,26 +384,10 @@ struct BinsOutWidgetEntryView : View  {
                 }
                 .containerBackground(.black, for: .widget)
                 
-                switch(daysAway){
-                case 1:
-                    Text("\n\n\n\n\n\n\nTomorrow\n")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white.opacity(0.4))
-                        .multilineTextAlignment(.center)
-                case 0:
-                    Text("\n\n\n\n\n\n\nToday\n")
-                        .fontWeight(.bold)
-                        .foregroundColor(.black.opacity(0.4))
-                        .multilineTextAlignment(.center)
-                default:
-                    
-                    //let s = nextBinDate.formatted(.dateTime.day(.twoDigits))
-                    //let m = nextBinDate.formatted( .dateTime.weekday(.wide))
-                    Text("\n\n\n\n\n\n\n"+nd(nextBinDate: nextBinDate)+"\n")
-                        .fontWeight(.bold)
-                        .foregroundColor(.white.opacity(0.4))
-                        .multilineTextAlignment(.center)
-                }
+                Text("\n\n\n\n\n\n"+text)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white.opacity(0.4))
+                    .multilineTextAlignment(.center)
                 //.containerBackground(.red.gradient, for: .widget)
                 //.contentMargins(0.0, for: .widget)
                 
@@ -280,6 +409,19 @@ struct BinsOutWidgetEntryView : View  {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 func nd(nextBinDate: Date) -> String {
     let dateFormatter = DateFormatter()
 
@@ -288,4 +430,60 @@ func nd(nextBinDate: Date) -> String {
     dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd") // // set template after setting locale
     return dateFormatter.string(from: nextBinDate)
     
+}
+
+func setUpBinDay() -> [Day]{
+    var d = [Day]()
+    let s: [String] = UserDefaults(suiteName: "group.bins")?.stringArray(forKey:"binDay") ?? ["Monday", "Monday"]
+    for i in s{
+        d.append(Day(rawValue: i) ?? .Monday)
+    }
+    return d
+}
+
+func setUpBinColour() -> [Colour]{
+    var d = [Colour]()
+    let s: [String] = UserDefaults(suiteName: "group.bins")?.stringArray(forKey:"binColour") ?? ["Yellow", "Yellow"]
+    for i in s{
+        d.append(Colour(rawValue: i) ?? .Yellow)
+    }
+    return d
+}
+
+func dayOfWeek(nextBinDate: Date) -> String {
+    let dateFormatter = DateFormatter()
+
+    // Set Date/Time Style
+    dateFormatter.locale = Locale(identifier: "en_GB")
+    dateFormatter.setLocalizedDateFormatFromTemplate("EEEE") // // set template after setting locale
+    return dateFormatter.string(from: nextBinDate)
+}
+
+func determineDate(nextBinDay: String, weeksFromNow: Int) -> Date {
+    //Figure out which date this week's binDay is on
+    let currentDate = Date()
+    let dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    var nextBinDate: Date
+    
+    if #available(iOSApplicationExtension 15.0, *) {
+        //firstIndex to find where the day fits in list, then subtract where today fits in the list
+        let daysAway = dayList.firstIndex(of: nextBinDay)! - dayList.firstIndex(of: currentDate.formatted( .dateTime.weekday(.wide)))!
+        nextBinDate = Calendar.current.date(byAdding: .day, value: daysAway+(7*weeksFromNow), to: currentDate)!
+    }else{
+        nextBinDate = currentDate
+    }
+    return nextBinDate
+}
+
+func numberOfDaysAway(nextBinDay: String) -> Int {
+    //Figure out which date this week's binDay is on
+    let currentDate = Date()
+    let dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    var daysAway = 0
+    
+    if #available(iOSApplicationExtension 15.0, *) {
+        //firstIndex to find where the day fits in list, then subtract where today fits in the list
+        daysAway = dayList.firstIndex(of: nextBinDay)! - dayList.firstIndex(of: currentDate.formatted( .dateTime.weekday(.wide)))!
+    }
+    return daysAway
 }

@@ -16,20 +16,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2807E8F329D31C910029C6B9"
-               BuildableName = "BinsOutWidgetExtension.appex"
-               BlueprintName = "BinsOutWidgetExtension"
-               ReferencedContainer = "container:BinsOut.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2807E8DE29D31C490029C6B9"
                BuildableName = "BinsOut.app"
                BlueprintName = "BinsOut"
@@ -57,16 +43,6 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2807E8DE29D31C490029C6B9"
-            BuildableName = "BinsOut.app"
-            BlueprintName = "BinsOut"
-            ReferencedContainer = "container:BinsOut.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
@@ -92,16 +68,6 @@
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2807E8DE29D31C490029C6B9"
-            BuildableName = "BinsOut.app"
-            BlueprintName = "BinsOut"
-            ReferencedContainer = "container:BinsOut.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
